@@ -4,4 +4,12 @@
   <li>Last Name: <h3 class="contact_info"><%= @contact.last_name %></h3></li>
   <li>E-mail Address: <h3 class="contact_info"><%= @contact.email %></h3></li>
   <li>Notes: <p><%= @contact.note %></p></li>
+  <li><form action="/contacts/<%= @contact.id %>/edit">
+    <input type="submit" value="Edit Contact" />
+    </form>
+
+    <!-- <form action="/contacts/<%= @contact.id %>" method="post">
+    <input type='hidden' name='_method' value='delete'>
+    <input type='submit' value='Delete'>
+  </form></li> -->
 </ul>

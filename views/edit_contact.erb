@@ -1,12 +1,20 @@
 <h2>Edit a Contact</h2>
-
-<form action='/contacts/<%= @contact.id %>' method='post'>
-  <input type='hidden' name='_method' value='put'>
   <ul>
-    <li>First Name: <input type='text' name='first_name' value='<%= @contact.first_name %>'></li>
-    <li>Last Name: <input type='text' name='last_name' value='<%= @contact.last_name %>'></li>
-    <li>E-mail Address: <input type='text' name='email' value='<%= @contact.email %>'></li>
-    <li>Notes: <textarea name='note'><%= @contact.note %></textarea></li>
-    <li><input type='submit' value='Edit Contact'></li>
+    <form action='/contacts/<%= @contact.id %>' method='post'>
+    <input type='hidden' name='_method' value='put'>    
+      <li>First Name: <input type='text' name='first_name' value='<%= @contact.first_name %>'></li>
+      <li>Last Name: <input type='text' name='last_name' value='<%= @contact.last_name %>'></li>
+      <li>E-mail Address: <input type='text' name='email' value='<%= @contact.email %>'></li>
+      <li>Notes: <textarea name='note'><%= @contact.note %></textarea></li>
+      <li><input type='submit' value='Save Changes'></li>
+    </form>
+
+    <li><form action="/contacts">
+      <input type="submit" value="Back to Contact List" />
+      </form></li>
+
+    <li><form action="/contacts/<%= @contact.id %>" method="post">
+      <input type='hidden' name='_method' value='delete'>
+      <input type='submit' value='Delete Contact'>
+    </form></li>
   </ul>
-</form>
