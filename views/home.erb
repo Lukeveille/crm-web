@@ -1,0 +1,9 @@
+<h2>There are <strong><%= @list_size %></strong> contacts</h2>
+<ul>
+  <% @all_contacts.each do |contact| %>
+  <li>
+    <h3><%= contact.full_name %> (<%= contact.email %>)</h3>
+    <a href="/contacts/<%= contact.id %>">Edit</a> | <a href="/">Delete</a>
+  </li>
+  <% end %>
+</ul>
