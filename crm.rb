@@ -2,24 +2,14 @@ require "sinatra"
 require_relative "contact"
 
 get "/" do
-  redirect to("/home")
+  redirect to("/contacts")
 end
 
-get "/home" do
-  @title = "Home"
+get "/contacts" do
+  @title = "Contacts"
   @list_size = Contact.count
   @all_contacts = Contact.all
   erb :home
-end
-
-get "/add_contact" do
-  @title = "Add a Contact"
-  erb :add_contact
-end
-
-get "/about" do
-  @title = "About Me"
-  erb :about
 end
 
 get "/contacts/new" do
@@ -34,4 +24,20 @@ get "/contacts/:id" do
   else
     erb :error
   end
+end
+
+post '/contacts' do
+  Contact.create(
+    first_name: params[:first_name],
+    last_name:  params[:last_name],
+    email:      params[:email],
+    note:       params[:note]
+  )
+  redirect to('/contacts')
+end
+
+
+get "/about" do
+  @title = "About Me"
+  erb :about
 end
